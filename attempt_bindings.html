@@ -2,15 +2,28 @@
   <head>
     <!-- Load WebAssembly module -->
     <script type="text/javascript" src="attempt_bindings.js" defer></script>
+
+    <style>
+      body {
+        background-color: black;
+      }
+
+      #life {
+        color: green;
+      }
+    </style>
   </head>
   <body>
-    <div>Attempting a brave calculation: <span id="answer" /></div>
+    <div>
+      <pre id="life"></pre>
+    </div>
     <script defer>
       // wait for resources to load
       window.addEventListener("DOMContentLoaded", function () {
         // Wait for module to initialize,
-        createModule().then(({ attempt }) => {
-          document.getElementById("answer").innerHTML = attempt();
+        createModule().then(({ attempt, randomize }) => {
+          randomize();
+          document.getElementById("life").innerHTML = attempt();
         });
       });
     </script>

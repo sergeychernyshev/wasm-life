@@ -1,4 +1,4 @@
-all: attempt_bindings.wasm attempt_bindings.js attempt-cli attempt.html attempt.js attempt.wasm
+all: attempt_bindings.wasm attempt_bindings.js attempt-cli
 
 .PHONY: all clean
 
