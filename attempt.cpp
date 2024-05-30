@@ -13,7 +13,7 @@ std::string attempt() {
     for (int i = 0; i < GRID_HEIGHT; i++) {
         for (int j = 0; j < GRID_WIDTH; j++) {
             if (current_grid[i][j]) {
-                output += "o";
+                output += "O";
             } else {
                 output += " ";
             }
