@@ -19,12 +19,11 @@
     </div>
     <script defer>
       // wait for resources to load
-      window.addEventListener("DOMContentLoaded", function () {
+      window.addEventListener("DOMContentLoaded", async function () {
         // Wait for module to initialize,
-        createModule().then(({ attempt, randomize }) => {
-          randomize();
-          document.getElementById("life").innerHTML = attempt();
-        });
+        const { attempt, randomize } = await createModule();
+        randomize();
+        document.getElementById("life").innerHTML = attempt();
       });
     </script>
   </body>
