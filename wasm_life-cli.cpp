@@ -1,9 +1,9 @@
 #include <iostream>
-#include "attempt.hpp"
+#include "wasm_life.hpp"
 
 int main() {
   randomize();
-  std::cout << attempt() << std::endl;
+  std::cout << render() << std::endl;
 
   return 0;
 }

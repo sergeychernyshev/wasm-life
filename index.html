@@ -1,7 +1,7 @@
 <html>
   <head>
     <!-- Load WebAssembly module -->
-    <script type="text/javascript" src="attempt_bindings.js" defer></script>
+    <script type="text/javascript" src="wasm_life_bindings.js" defer></script>
 
     <style>
       body {
@@ -21,9 +21,9 @@
       // wait for resources to load
       window.addEventListener("DOMContentLoaded", async function () {
         // Wait for module to initialize,
-        const { attempt, randomize } = await createModule();
+        const { render, randomize } = await createModule();
         randomize();
-        document.getElementById("life").innerHTML = attempt();
+        document.getElementById("life").innerHTML = render();
       });
     </script>
   </body>

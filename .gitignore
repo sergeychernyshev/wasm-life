@@ -1,6 +1,5 @@
-attempt.js
-attempt.wasm
-attempt-cli
-attempt.html
-attempt_bindings.js
-attempt_bindings.wasm
+wasm_life.js
+wasm_life.wasm
+wasm_life
+wasm_life_bindings.js
+wasm_life_bindings.wasm

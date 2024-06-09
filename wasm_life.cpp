@@ -1,13 +1,13 @@
-#include "attempt.hpp"
+#include "wasm_life.hpp"
 #include <string>
 
-#define GRID_WIDTH 120
-#define GRID_HEIGHT 30
+#define GRID_WIDTH 250
+#define GRID_HEIGHT 50
 
 bool current_grid[GRID_HEIGHT][GRID_WIDTH];
 // bool next_grid[GRID_HEIGHT][GRID_WIDTH];
 
-std::string attempt() {
+std::string render() {
     std::string output = "";
 
     for (int i = 0; i < GRID_HEIGHT; i++) {

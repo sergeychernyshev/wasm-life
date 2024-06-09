@@ -1,21 +1,17 @@
-all: attempt_bindings.wasm attempt_bindings.js attempt-cli
+all: wasm_life_bindings.wasm wasm_life_bindings.js wasm_life
 
 .PHONY: all clean
 
-# attempt_bindings.html is created manually so we just build a WASM and JS files
-attempt_bindings.wasm attempt_bindings.js: attempt.cpp attempt_bindings.cpp
-	emcc -I. -o attempt_bindings.js -Oz -s MODULARIZE=1 -s EXPORT_NAME=createModule --bind attempt.cpp attempt_bindings.cpp
-
-# HTML, JS and WASM files are created by emscripten
-attempt.html: attempt.cpp attempt-cli.cpp
-	emcc attempt-cli.cpp attempt.cpp -o attempt.html
+# wasm_life_bindings.html is created manually so we just build a WASM and JS files
+wasm_life_bindings.wasm wasm_life_bindings.js: wasm_life.cpp wasm_life_bindings.cpp
+	emcc -I. -o wasm_life_bindings.js -Oz -s MODULARIZE=1 -s EXPORT_NAME=createModule --bind wasm_life.cpp wasm_life_bindings.cpp
 
 # just a CLI desktop version of the same code
-attempt-cli: attempt.cpp attempt-cli.cpp
-	g++ -o attempt-cli attempt-cli.cpp attempt.cpp
-	chmod a+x attempt-cli
+wasm_life: wasm_life.cpp wasm_life-cli.cpp
+	g++ -o wasm_life wasm_life-cli.cpp wasm_life.cpp
+	chmod a+x wasm_life
 
 clean:
-	rm -f attempt-cli \
-		attempt.js attempt.wasm attempt.html \
-		attempt_bindings.js attempt_bindings.wasm
+	rm -f wasm_life \
+		wasm_life.js wasm_life.wasm wasm_life.html \
+		wasm_life_bindings.js wasm_life_bindings.wasm

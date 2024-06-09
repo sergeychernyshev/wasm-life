@@ -1,4 +1,4 @@
 #include <string>
 
-std::string attempt();
+std::string render();
 void randomize();

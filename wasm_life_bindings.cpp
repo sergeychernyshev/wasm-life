@@ -1,11 +1,11 @@
 
 #include <emscripten/bind.h>
-#include "attempt.hpp"
+#include "wasm_life.hpp"
 
 using namespace emscripten;
 
-EMSCRIPTEN_BINDINGS(attempt) {
-   function("attempt", &attempt);
+EMSCRIPTEN_BINDINGS(render) {
+   function("render", &render);
 }
 
 EMSCRIPTEN_BINDINGS(randomize) {
