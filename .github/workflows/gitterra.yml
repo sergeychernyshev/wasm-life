@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install emscripten
-        uses: lovasoa/setup-emscripten@master
+        uses: mymindstorm/setup-emsdk@v14
       - name: Compile WASM Life 🌱
         run: make
   play-gitterra:
