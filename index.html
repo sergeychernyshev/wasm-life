@@ -21,9 +21,19 @@
       // wait for resources to load
       window.addEventListener("DOMContentLoaded", async function () {
         // Wait for module to initialize,
-        const { render, randomize } = await createModule();
+        const { render, randomize, calculate_next_generation } =
+          await createModule();
+
         randomize();
         document.getElementById("life").innerHTML = render();
+
+        let cycle = 1;
+
+        setInterval(() => {
+          cycle++;
+          calculate_next_generation();
+          document.getElementById("life").innerHTML = cycle + "\n\n" + render();
+        }, 100);
       });
     </script>
   </body>
