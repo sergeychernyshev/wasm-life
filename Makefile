@@ -1,6 +1,8 @@
-all: wasm_life_bindings.wasm wasm_life_bindings.js wasm_life
+all: web wasm_life
 
-.PHONY: all clean
+.PHONY: web all clean
+
+web: wasm_life_bindings.wasm wasm_life_bindings.js
 
 # wasm_life_bindings.html is created manually so we just build a WASM and JS files
 wasm_life_bindings.wasm wasm_life_bindings.js: wasm_life.hpp wasm_life.cpp wasm_life_bindings.cpp

@@ -29,7 +29,15 @@ jobs:
       - name: Looking at local files
         run: find .
       - name: Compile WASM Life 🌱
-        run: make
+        run: make web
+      - name: Upload website artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wasm-life
+          path: |
+            index.html
+            wasm_life_bindings.js
+            wasm_life_bindings.wasm
   play-gitterra:
     runs-on: ubuntu-latest
     steps:
@@ -48,6 +56,9 @@ jobs:
         with:
           name: gitterra
           path: gitterra/
+      - uses: actions/download-artifact@v4
+        with:
+          name: wasm-life
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
