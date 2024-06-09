@@ -26,8 +26,6 @@ jobs:
         uses: mymindstorm/setup-emsdk@v14
       - name: Grabbing the code
         uses: actions/checkout@v4
-      - name: Looking at local files
-        run: find .
       - name: Compile WASM Life 🌱
         run: make web
       - name: Upload website artifact
