@@ -19,13 +19,22 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  compile-life:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install emscripten
+        uses: lovasoa/setup-emscripten@master
+      - name: Compile WASM Life 🌱
+        run: make
   play-gitterra:
     runs-on: ubuntu-latest
     steps:
       - name: Play GitTerra 🎮
         uses: GitTerraGame/Play-GitTerra-Action@main
-  deploy-gitterra-to-gh-pages:
-    needs: play-gitterra
+  deploy-to-gh-pages:
+    needs:
+      - compile-life
+      - play-gitterra
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -34,6 +43,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: gitterra
+          path: gitterra/
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
