@@ -1,4 +1,4 @@
-[![we play GitTerra](https://github.com/sergeychernyshev/wasm-life/actions/workflows/gitterra.yml/badge.svg)](https://github.com/sergeychernyshev/wasm-life/actions/workflows/gitterra.yml)
+[![we play GitTerra](https://github.com/sergeychernyshev/wasm-life/actions/workflows/life_and_gitterra.yml/badge.svg)](https://sergeychernyshev.github.io/wasm-life/gitterra/)
 
 # Conway's Game of Life in WebAssembly
 
