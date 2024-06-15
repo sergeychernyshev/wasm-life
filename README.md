@@ -21,7 +21,7 @@ It will also build a CLI version of the app as well.
 
 Open `index.html` in your browser using a local web server to run the app. Just opening it using `file://` protocol will not work because of CORS restrictions.
 
-You can also run the CLI version of the app by running `./life-cli` in the terminal.
+<!-- You can also run the CLI version of the app by running `./life-cli` in the terminal. -->
 
 ## We also play GitTerra
 

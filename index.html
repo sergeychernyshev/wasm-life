@@ -8,32 +8,46 @@
         background-color: black;
       }
 
-      #life {
+      #cycle {
         color: green;
       }
     </style>
   </head>
   <body>
-    <div>
-      <pre id="life"></pre>
+    <div id="life">
+      <pre id="cycle"></pre>
     </div>
+    <canvas id="canvas" width="1500" height="900"></canvas>
+
     <script defer>
       // wait for resources to load
       window.addEventListener("DOMContentLoaded", async function () {
         // Wait for module to initialize,
-        const { render, randomize, calculate_next_generation } =
-          await createModule();
+        const {
+          randomize,
+          calculate_next_generation,
+          renderPixels,
+          GRID_WIDTH,
+          GRID_HEIGHT,
+          BOX_SIZE,
+        } = await createModule();
+
+        const canvas = document.getElementById("canvas");
+        canvas.width = GRID_WIDTH * BOX_SIZE;
+        canvas.height = GRID_HEIGHT * BOX_SIZE;
 
         randomize();
-        document.getElementById("life").innerHTML = render();
 
         let cycle = 1;
 
         setInterval(() => {
           cycle++;
+
           calculate_next_generation();
-          document.getElementById("life").innerHTML = cycle + "\n\n" + render();
-        }, 100);
+          renderPixels();
+
+          document.getElementById("cycle").innerHTML = cycle;
+        }, 200);
       });
     </script>
   </body>

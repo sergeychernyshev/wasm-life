@@ -1,5 +1,7 @@
-#include "wasm_life.hpp"
 #include <string>
+
+#include "wasm_life.hpp"
+#include "canvas_render.hpp"
 
 bool grid_A[GRID_HEIGHT][GRID_WIDTH];
 bool grid_B[GRID_HEIGHT][GRID_WIDTH];
@@ -91,6 +93,11 @@ std::string render()
     }
 
     return output;
+}
+
+void renderPixels()
+{
+    renderOnCanvas(GRID_WIDTH, GRID_HEIGHT, BOX_SIZE, current_grid_ptr);
 }
 
 void randomize()
